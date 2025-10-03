@@ -2,7 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Search, Menu, X, Sun, Moon } from 'lucide-react'
+
+// Simple icon components to avoid lucide-react import issues
+const SearchIcon = () => <span className="h-5 w-5">🔍</span>
+const MenuIcon = () => <span className="h-5 w-5">☰</span>
+const CloseIcon = () => <span className="h-5 w-5">✕</span>
+const SunIcon = () => <span className="h-5 w-5">☀️</span>
+const MoonIcon = () => <span className="h-5 w-5">🌙</span>
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,7 +51,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             {/* Search button */}
             <button className="p-2 rounded-md hover:bg-accent transition-colors">
-              <Search className="h-5 w-5" />
+              <SearchIcon />
             </button>
 
             {/* Dark mode toggle */}
@@ -53,7 +59,7 @@ export default function Header() {
               onClick={toggleDarkMode}
               className="p-2 rounded-md hover:bg-accent transition-colors"
             >
-              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDarkMode ? <SunIcon /> : <MoonIcon />}
             </button>
 
             {/* Mobile menu button */}
@@ -61,7 +67,7 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
         </div>

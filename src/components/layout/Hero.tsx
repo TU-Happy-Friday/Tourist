@@ -1,4 +1,6 @@
-import { Search, MapPin } from 'lucide-react'
+// Simple icon components to avoid lucide-react import issues
+const SearchIcon = () => <span className="h-5 w-5">🔍</span>
+const MapPinIcon = () => <span className="h-5 w-5">📍</span>
 
 export default function Hero() {
   return (
@@ -17,7 +19,9 @@ export default function Hero() {
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400">
+                <SearchIcon />
+              </span>
               <input
                 type="text"
                 placeholder="Search destinations, cities, or attractions..."
@@ -33,21 +37,21 @@ export default function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <MapPin className="h-8 w-8 text-primary" />
+                <MapPinIcon />
               </div>
               <div className="text-3xl font-bold text-gray-900">50+</div>
               <div className="text-gray-600">Destinations</div>
             </div>
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <MapPin className="h-8 w-8 text-primary" />
+                <MapPinIcon />
               </div>
               <div className="text-3xl font-bold text-gray-900">15</div>
               <div className="text-gray-600">Provinces</div>
             </div>
             <div className="text-center">
               <div className="flex justify-center mb-2">
-                <MapPin className="h-8 w-8 text-primary" />
+                <MapPinIcon />
               </div>
               <div className="text-3xl font-bold text-gray-900">8</div>
               <div className="text-gray-600">Categories</div>

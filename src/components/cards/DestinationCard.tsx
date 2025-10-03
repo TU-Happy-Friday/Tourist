@@ -1,6 +1,11 @@
 import Link from 'next/link'
-import { MapPin, Star, Clock, DollarSign } from 'lucide-react'
 import { Destination } from '@/types'
+
+// Simple icon components to avoid lucide-react import issues
+const MapPinIcon = () => <span className="h-4 w-4">📍</span>
+const StarIcon = () => <span className="h-4 w-4">⭐</span>
+const ClockIcon = () => <span className="h-4 w-4">🕐</span>
+const DollarSignIcon = () => <span className="h-4 w-4">💲</span>
 
 interface DestinationCardProps {
   destination: Destination
@@ -17,7 +22,7 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">
-          <Star className="h-4 w-4 text-yellow-500 fill-current" />
+          <StarIcon />
           <span className="text-sm font-medium">{destination.rating}</span>
         </div>
       </div>
@@ -37,19 +42,19 @@ export default function DestinationCard({ destination }: DestinationCardProps) {
 
         {/* Location */}
         <div className="flex items-center text-sm text-gray-600 mb-3">
-          <MapPin className="h-4 w-4 mr-1" />
-          {destination.location.city}, {destination.location.province}
+          <MapPinIcon />
+          <span className="ml-1">{destination.location.city}, {destination.location.province}</span>
         </div>
 
         {/* Details */}
         <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
           <div className="flex items-center">
-            <Clock className="h-4 w-4 mr-1" />
-            <span className="text-xs">{destination.openingHours}</span>
+            <ClockIcon />
+            <span className="ml-1 text-xs">{destination.openingHours}</span>
           </div>
           <div className="flex items-center">
-            <DollarSign className="h-4 w-4 mr-1" />
-            <span>{destination.priceRange}</span>
+            <DollarSignIcon />
+            <span className="ml-1">{destination.priceRange}</span>
           </div>
         </div>
 

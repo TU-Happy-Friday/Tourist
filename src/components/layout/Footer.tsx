@@ -1,5 +1,12 @@
 import Link from 'next/link'
-import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from 'lucide-react'
+
+// Simple icon components to avoid lucide-react import issues
+const MapPinIcon = () => <span className="h-4 w-4">📍</span>
+const MailIcon = () => <span className="h-4 w-4">✉️</span>
+const PhoneIcon = () => <span className="h-4 w-4">📞</span>
+const FacebookIcon = () => <span className="h-5 w-5">📘</span>
+const InstagramIcon = () => <span className="h-5 w-5">📷</span>
+const TwitterIcon = () => <span className="h-5 w-5">🐦</span>
 
 export default function Footer() {
   return (
@@ -19,9 +26,9 @@ export default function Footer() {
               let us help you plan your perfect trip.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
+              <FacebookIcon />
+              <InstagramIcon />
+              <TwitterIcon />
             </div>
           </div>
 
@@ -57,15 +64,15 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Contact</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-gray-300">
-                <MapPin className="h-4 w-4" />
+                <MapPinIcon />
                 <span className="text-sm">Bangkok, Thailand</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <Mail className="h-4 w-4" />
+                <MailIcon />
                 <span className="text-sm">info@tourist.th</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
-                <Phone className="h-4 w-4" />
+                <PhoneIcon />
                 <span className="text-sm">+66 2 123 4567</span>
               </div>
             </div>
